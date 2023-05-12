@@ -11,11 +11,10 @@ function initMap() {
 
 		geocoder.geocode({ address: fullAddress }, function (results, status) {
 			if (status === "OK") {
-				// Address is valid
-				alert("Address is valid");
+				const formattedAddress = results[0].formatted_address;
+				document.getElementById("result").innerHTML = formattedAddress;
 			} else {
-				// Address is invalid
-				alert("Address is invalid");
+				document.getElementById("result").innerHTML = "Invalid address";
 			}
 		});
 	});
